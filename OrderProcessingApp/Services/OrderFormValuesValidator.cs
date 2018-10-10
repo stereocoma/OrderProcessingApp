@@ -14,6 +14,7 @@ namespace OrderProcessingApp.Services
             ValidateNumberOfChildrenAndNumberOfAdults(orderFormValues, orderFormErrors);
             ValidateDistance(orderFormValues, orderFormErrors);
             ValidateCargoWeight(orderFormValues, orderFormErrors);
+            ValidateVehicleType(orderFormValues, orderFormErrors);
         }
 
         public void ValidateNumberOfChildrenAndNumberOfAdults(OrderFormValues orderFormValues, 

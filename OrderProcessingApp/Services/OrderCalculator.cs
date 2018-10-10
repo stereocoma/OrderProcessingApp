@@ -18,8 +18,6 @@ namespace OrderProcessingApp.Services
         {
             OrderConfiguration orderConfiguration = order.Configuration;
             double hoursSpent = CalculateHoursSpent(order);
-            System.Console.Out.WriteLine(order.StartTime.ToLongTimeString());
-            System.Console.Out.WriteLine(hoursSpent);
             double driversJobCost = CalculateCostOfDriversJob(hoursSpent, orderConfiguration.DriverJobCostPerHour);
             double fuelCost = CalculateFuelCost(order.Distance, orderConfiguration.FuelLiterCost,
                 orderConfiguration.AverageFuelConsumptionPerHundredKilometers);
