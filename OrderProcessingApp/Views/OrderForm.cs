@@ -115,6 +115,7 @@ namespace OrderProcessingApp
             }
             else
             {
+                System.Console.Out.WriteLine("Form is invalid");
                 DisplayValidationErrors();
             }
         }
@@ -126,7 +127,7 @@ namespace OrderProcessingApp
                 orderConfigurationFormErrors);
             foreach (PropertyInfo property in orderFormErrors.GetType().GetProperties())
             {
-                if (property != null)
+                if (property.GetValue(orderFormErrors) != null)
                 {
                     return false;
                 }
@@ -134,7 +135,7 @@ namespace OrderProcessingApp
 
             foreach (PropertyInfo property in orderConfigurationFormErrors.GetType().GetProperties())
             {
-                if (property != null)
+                if (property.GetValue(orderConfigurationFormErrors) != null)
                 {
                     return false;
                 }

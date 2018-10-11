@@ -40,6 +40,7 @@ namespace OrderProcessingApp.Services
         {
             double averageSpeed = GetAverageSpeedForVehicleType(order.VehicleType);
             double hoursSpent = 0;
+            int restTakenTimes = 0;
 
             double remainingDistance = order.Distance;
 
@@ -52,12 +53,13 @@ namespace OrderProcessingApp.Services
                 }
                 else
                 {
+                    restTakenTimes++;
                     hoursSpent += MAX_HOURS_PER_DAY;
                     remainingDistance -= CalculateCoveredDistance(averageSpeed, hoursSpent);
                 }
             }
 
-            return hoursSpent;
+            return hoursSpent + restTakenTimes * (24 - MAX_HOURS_PER_DAY);
         }
 
         private double GetAverageSpeedForVehicleType(VehicleType vehicleType)
